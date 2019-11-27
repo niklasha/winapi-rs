@@ -8,11 +8,13 @@ use shared::guiddef::{REFGUID, REFIID};
 use shared::minwindef::{BOOL, DWORD, UINT, ULONG, WORD};
 use shared::windef::{COLORREF, HICON, HWND, RECT};
 use um::commctrl::HIMAGELIST;
+use um::minwinbase::{WIN32_FIND_DATAA};
 use um::objidl::IBindCtx;
 use um::propkeydef::REFPROPERTYKEY;
 use um::propsys::GETPROPERTYSTOREFLAGS;
+use um::shtypes::{PIDLIST_ABSOLUTE, PCIDLIST_ABSOLUTE};
 use um::unknwnbase::{IUnknown, IUnknownVtbl};
-use um::winnt::{HRESULT, LPCWSTR, LPWSTR, ULONGLONG, WCHAR};
+use um::winnt::{HRESULT, LPCSTR, LPSTR, LPCWSTR, LPWSTR, ULONGLONG, WCHAR};
 DEFINE_GUID!{CLSID_DesktopWallpaper,
     0xc2cf3110, 0x460e, 0x4fc1, 0xb9, 0xd0, 0x8a, 0x1c, 0x0c, 0x9c, 0xc4, 0xbd}
 DEFINE_GUID!{CLSID_TaskbarList,
@@ -428,3 +430,82 @@ RIDL!{#[uuid(0x45ba127d, 0x10a8, 0x46ea, 0x8a, 0xb7, 0x56, 0xea, 0x90, 0x78, 0x9
 class ApplicationActivationManager;}
 RIDL!{#[uuid(0x958a6fb5, 0xdcb2, 0x4faf, 0xaa, 0xfd, 0x7f, 0xb0, 0x54, 0xad, 0x1a, 0x3b)]
 class ApplicationDesignModeSettings;}
+
+DEFINE_GUID!{CLSID_ShellLink,
+    0x0002140, 0x0000, 0x0000, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46}
+RIDL!(#[uuid(0x000214EE, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
+interface IShellLinkA(IShellLinkAVtbl): IUnknown(IUnknownVtbl) {
+    fn GetPath(
+        pszFile: LPSTR,
+        cch: c_int,
+        pfd: *mut WIN32_FIND_DATAA,
+        fFlags: DWORD,
+    ) -> HRESULT,
+    fn GetIDList(
+        ppidl: *mut PIDLIST_ABSOLUTE,
+    ) -> HRESULT,
+    fn SetIDList(
+        pidl: PCIDLIST_ABSOLUTE,
+    ) -> HRESULT,
+    fn GetDescription(
+        pszName: LPSTR,
+        cch: c_int,
+    ) -> HRESULT,
+    fn SetDescription(
+        pszName: LPCSTR,
+    ) -> HRESULT,
+    fn GetWorkingDirectory(
+        pszDir: LPSTR,
+        cch: c_int,
+    ) -> HRESULT,
+    fn SetWorkingDirectory(
+        pszDir: LPCSTR,
+    ) -> HRESULT,
+    fn GetArguments(
+        pszArgs: LPSTR,
+        cch: c_int,
+    ) -> HRESULT,
+    fn SetArguments(
+        pszArgs: LPCSTR,
+    ) -> HRESULT,
+    fn GetHotkey(
+        pwHotkey: *mut WORD,
+    ) -> HRESULT,
+    fn SetHotkey(
+        wHotkey: WORD,
+    ) -> HRESULT,
+    fn GetShowCmd(
+        piShowCmd: *mut c_int,
+    ) -> HRESULT,
+    fn SetShowCmd(
+        iShowCmd: c_int,
+    ) -> HRESULT,
+    fn GetIconLocation(
+        pszIconPath: LPSTR,
+        cch: c_int,
+        piIcon: *mut c_int,
+    ) -> HRESULT,
+    fn SetIconLocation(
+        pszIconPath: LPCSTR,
+        iIcon: c_int,
+    ) -> HRESULT,
+    fn SetRelativePath(
+        pszPathRel: LPCSTR,
+        dwReserved: DWORD,
+    ) -> HRESULT,
+    fn Resolve(
+        hwnd: HWND,
+        fFlags: DWORD,
+    ) -> HRESULT,
+    fn SetPath(
+        pszFile: LPCSTR,
+    ) -> HRESULT,
+});
+/*
+RIDL!(#[uuid(0x000214F9, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
+interface IShellLinkW(IShellLinkWVtbl): IUnknown(IUnknownVtbl) {
+    fn Show(
+        hwndOwner: HWND,
+    ) -> HRESULT,
+});
+*/
