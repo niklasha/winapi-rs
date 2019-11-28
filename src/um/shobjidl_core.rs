@@ -501,11 +501,73 @@ interface IShellLinkA(IShellLinkAVtbl): IUnknown(IUnknownVtbl) {
         pszFile: LPCSTR,
     ) -> HRESULT,
 });
-/*
+
 RIDL!(#[uuid(0x000214F9, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
 interface IShellLinkW(IShellLinkWVtbl): IUnknown(IUnknownVtbl) {
-    fn Show(
-        hwndOwner: HWND,
+    fn GetPath(
+        pszFile: LPWSTR,
+        cch: c_int,
+        pfd: *mut WIN32_FIND_DATAA,
+        fFlags: DWORD,
+    ) -> HRESULT,
+    fn GetIDList(
+        ppidl: *mut PIDLIST_ABSOLUTE,
+    ) -> HRESULT,
+    fn SetIDList(
+        pidl: PCIDLIST_ABSOLUTE,
+    ) -> HRESULT,
+    fn GetDescription(
+        pszName: LPWSTR,
+        cch: c_int,
+    ) -> HRESULT,
+    fn SetDescription(
+        pszName: LPCWSTR,
+    ) -> HRESULT,
+    fn GetWorkingDirectory(
+        pszDir: LPWSTR,
+        cch: c_int,
+    ) -> HRESULT,
+    fn SetWorkingDirectory(
+        pszDir: LPCWSTR,
+    ) -> HRESULT,
+    fn GetArguments(
+        pszArgs: LPWSTR,
+        cch: c_int,
+    ) -> HRESULT,
+    fn SetArguments(
+        pszArgs: LPCWSTR,
+    ) -> HRESULT,
+    fn GetHotkey(
+        pwHotkey: *mut WORD,
+    ) -> HRESULT,
+    fn SetHotkey(
+        wHotkey: WORD,
+    ) -> HRESULT,
+    fn GetShowCmd(
+        piShowCmd: *mut c_int,
+    ) -> HRESULT,
+    fn SetShowCmd(
+        iShowCmd: c_int,
+    ) -> HRESULT,
+    fn GetIconLocation(
+        pszIconPath: LPWSTR,
+        cch: c_int,
+        piIcon: *mut c_int,
+    ) -> HRESULT,
+    fn SetIconLocation(
+        pszIconPath: LPCWSTR,
+        iIcon: c_int,
+    ) -> HRESULT,
+    fn SetRelativePath(
+        pszPathRel: LPCWSTR,
+        dwReserved: DWORD,
+    ) -> HRESULT,
+    fn Resolve(
+        hwnd: HWND,
+        fFlags: DWORD,
+    ) -> HRESULT,
+    fn SetPath(
+        pszFile: LPCWSTR,
     ) -> HRESULT,
 });
-*/
+
