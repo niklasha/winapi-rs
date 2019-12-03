@@ -6,7 +6,7 @@
 //! this ALWAYS GENERATED file contains the definitions for the interfaces
 use ctypes::c_schar;
 use shared::guiddef::GUID;
-use shared::minwindef::{BYTE, USHORT, UINT};
+use shared::minwindef::{BYTE, UINT, USHORT};
 use um::winnt::{LPCWSTR, LPWSTR};
 STRUCT!{#[repr(packed)] struct SHITEMID {
     cb: USHORT,

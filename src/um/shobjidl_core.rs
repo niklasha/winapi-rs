@@ -13,17 +13,17 @@ use um::objidl::IBindCtx;
 use um::propkeydef::REFPROPERTYKEY;
 use um::propsys::GETPROPERTYSTOREFLAGS;
 use um::shtypes::{
-    PIDLIST_ABSOLUTE, 
     PCIDLIST_ABSOLUTE, 
-    PCUIDLIST_RELATIVE, 
+    PCUIDLIST_RELATIVE,
     PCUITEMID_CHILD,
     PCUITEMID_CHILD_ARRAY,
+    PIDLIST_ABSOLUTE,
     PIDLIST_RELATIVE,
     PITEMID_CHILD,
-    STRRET,
+    STRRET
 };
 use um::unknwnbase::{IUnknown, IUnknownVtbl};
-use um::winnt::{HRESULT, LPCSTR, LPSTR, LPCWSTR, LPWSTR, ULONGLONG, WCHAR};
+use um::winnt::{HRESULT, LPCSTR, LPCWSTR, LPSTR, LPWSTR, ULONGLONG, WCHAR};
 DEFINE_GUID!{CLSID_DesktopWallpaper,
     0xc2cf3110, 0x460e, 0x4fc1, 0xb9, 0xd0, 0x8a, 0x1c, 0x0c, 0x9c, 0xc4, 0xbd}
 DEFINE_GUID!{CLSID_TaskbarList,

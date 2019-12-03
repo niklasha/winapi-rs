@@ -11,7 +11,7 @@ use shared::minwindef::{BOOL, BYTE, DWORD, FILETIME, HGLOBAL, ULONG, WORD};
 use shared::ntdef::LONG;
 use shared::windef::{HBITMAP, HENHMETAFILE};
 use shared::wtypes::{CLIPFORMAT, HMETAFILEPICT};
-use shared::wtypesbase::{LPOLESTR, LPCOLESTR, OLECHAR};
+use shared::wtypesbase::{LPCOLESTR, LPOLESTR, OLECHAR};
 use um::objidlbase::{IEnumString, IStream, STATSTG};
 use um::unknwnbase::{IUnknown, IUnknownVtbl};
 use um::winnt::{HRESULT, ULARGE_INTEGER};
