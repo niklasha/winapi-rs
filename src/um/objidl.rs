@@ -126,7 +126,7 @@ interface IPersistStream(IPersistStreamVtbl): IPersist(IPersistVtbl) {
         pcbSize: *mut ULARGE_INTEGER,
     ) -> HRESULT,
 }}
-RIDL!(
+RIDL!{
 #[uuid(0x0000010b, 0x0000, 0x0000, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46)]
 interface IPersistFile(IPersistFileVtbl): IPersist(IPersistVtbl) {
     fn IsDirty() -> HRESULT,
