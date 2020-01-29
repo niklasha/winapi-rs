@@ -439,7 +439,6 @@ RIDL!{#[uuid(0x45ba127d, 0x10a8, 0x46ea, 0x8a, 0xb7, 0x56, 0xea, 0x90, 0x78, 0x9
 class ApplicationActivationManager;}
 RIDL!{#[uuid(0x958a6fb5, 0xdcb2, 0x4faf, 0xaa, 0xfd, 0x7f, 0xb0, 0x54, 0xad, 0x1a, 0x3b)]
 class ApplicationDesignModeSettings;}
-
 ENUM!{enum SLR_FLAGS {
     SLR_NONE                        = 0,
     SLR_NO_UI                       = 0x1,
@@ -601,7 +600,6 @@ interface IShellLinkW(IShellLinkWVtbl): IUnknown(IUnknownVtbl) {
         pszFile: LPCWSTR,
     ) -> HRESULT,
 });
-
 ENUM!{enum _SHCONTF {
     SHCONTF_CHECKING_FOR_CHILDREN   = 0x10,
     SHCONTF_FOLDERS                 = 0x20,
