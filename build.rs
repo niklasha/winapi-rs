@@ -291,7 +291,7 @@ const DATA: &'static [(&'static str, &'static [&'static str], &'static [&'static
     ("shellapi", &["basetsd", "guiddef", "minwinbase", "minwindef", "processthreadsapi", "windef", "winnt", "winuser"], &["shell32", "shlwapi"]),
     ("shellscalingapi", &["minwindef", "windef", "winnt"], &["shcore"]),
     ("shlobj", &["guiddef", "minwinbase", "minwindef", "shtypes", "windef", "winnt"], &["shell32"]),
-    ("shobjidl", &["guiddef", "minwindef", "objidl", "propkeydef", "propsys", "shobjidl_core", "shtypes", "unknwnbase", "windef", "winnt"], &[]),
+    ("shobjidl", &["guiddef", "minwindef", "propsys", "shobjidl_core", "shtypes", "unknwnbase", "windef", "winnt"], &[]),
     ("shobjidl_core", &["commctrl", "guiddef", "minwinbase", "minwindef", "objidl", "propkeydef", "propsys", "shtypes", "unknwnbase", "windef", "winnt"], &[]),
     ("shtypes", &["guiddef", "minwindef", "winnt"], &[]),
     ("softpub", &[], &[]),
