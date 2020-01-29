@@ -464,7 +464,7 @@ ENUM!{enum SLGP_FLAGS {
 }}
 DEFINE_GUID!{CLSID_ShellLink,
     0x00021401, 0x0000, 0x0000, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46}
-RIDL!(#[uuid(0x000214EE, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
+RIDL!{#[uuid(0x000214EE, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
 interface IShellLinkA(IShellLinkAVtbl): IUnknown(IUnknownVtbl) {
     fn GetPath(
         pszFile: LPSTR,
@@ -531,8 +531,8 @@ interface IShellLinkA(IShellLinkAVtbl): IUnknown(IUnknownVtbl) {
     fn SetPath(
         pszFile: LPCSTR,
     ) -> HRESULT,
-});
-RIDL!(#[uuid(0x000214F9, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
+}}
+RIDL!{#[uuid(0x000214F9, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
 interface IShellLinkW(IShellLinkWVtbl): IUnknown(IUnknownVtbl) {
     fn GetPath(
         pszFile: LPWSTR,
@@ -599,23 +599,7 @@ interface IShellLinkW(IShellLinkWVtbl): IUnknown(IUnknownVtbl) {
     fn SetPath(
         pszFile: LPCWSTR,
     ) -> HRESULT,
-});
-ENUM!{enum _SHCONTF {
-    SHCONTF_CHECKING_FOR_CHILDREN   = 0x10,
-    SHCONTF_FOLDERS                 = 0x20,
-    SHCONTF_NONFOLDERS              = 0x40,
-    SHCONTF_INCLUDEHIDDEN           = 0x80,
-    SHCONTF_INIT_ON_FIRST_NEXT      = 0x100,
-    SHCONTF_NETPRINTERSRCH          = 0x200,
-    SHCONTF_SHAREABLE               = 0x400,
-    SHCONTF_STORAGE                 = 0x800,
-    SHCONTF_NAVIGATION_ENUM         = 0x1000,
-    SHCONTF_FASTITEMS               = 0x2000,
-    SHCONTF_FLATLIST                = 0x4000,
-    SHCONTF_ENABLE_ASYNC            = 0x8000,
-    SHCONTF_INCLUDESUPERHIDDEN      = 0x10000,
 }}
-pub type SHCONTF = DWORD;
 ENUM!{enum _SHGDNF {
     SHGDN_NORMAL        = 0,
     SHGDN_INFOLDER      = 0x1,
@@ -624,7 +608,7 @@ ENUM!{enum _SHGDNF {
     SHGDN_FORPARSING    = 0x8000,
 }}
 pub type SHGDNF = DWORD;
-RIDL!(#[uuid(0x000214F2, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
+RIDL!{#[uuid(0x000214F2, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
 interface IEnumIDList(IEnumIDListVtbl): IUnknown(IUnknownVtbl) {
     fn Next(
         celt: ULONG,
@@ -638,8 +622,8 @@ interface IEnumIDList(IEnumIDListVtbl): IUnknown(IUnknownVtbl) {
     fn Clone(
         ppenum: *mut *mut IEnumIDList,
     ) -> HRESULT,
-});
-RIDL!(#[uuid(0x000214E6, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
+}}
+RIDL!{#[uuid(0x000214E6, 0, 0, 0xC0,0,0,0,0,0,0,0x46)]
 interface IShellFolder(IShellFolderVtbl): IUnknown(IUnknownVtbl) {
     fn ParseDisplayName(
         hwnd: HWND,
@@ -701,4 +685,4 @@ interface IShellFolder(IShellFolderVtbl): IUnknown(IUnknownVtbl) {
         uFlags: SHGDNF,
         ppidlOut: *mut PITEMID_CHILD,
     ) -> HRESULT,
-});
+}}
